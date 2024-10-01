@@ -66,7 +66,7 @@ const App = () => {
       <Toaster />
       <SearchBar onSubmit={handleSearch} />
       {error && <ErrorMessage message={error} />}
-      <ImageGallery images={images} />
+      <ImageGallery images={images} onSelectImage={openModal} />
       {loading && <Loader />}
       {images.length > 0 && !loading && <LoadMoreBtn onClick={loadMoreImages} />}
       {selectedImage && (
@@ -80,4 +80,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default

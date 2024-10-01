@@ -1,0 +1,23 @@
+.modalContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 4px;
+    max-width: 90%;
+    margin: 40px auto;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .author {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .likes {
+    margin-top: 5px;
+    color: #555;
+  }
+  
