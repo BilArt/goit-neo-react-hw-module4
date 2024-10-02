@@ -1,13 +1,25 @@
+import PropTypes from 'prop-types';
 import styles from './ImageCard.module.css';
 
 const ImageCard = ({ image }) => {
-  const { urls, alt_description } = image;
-
   return (
     <div className={styles.card}>
-      <img className={styles.image} src={urls.small} alt={alt_description} />
+      <img
+        src={image.urls.small}
+        alt={image.alt_description || 'Image'}
+        className={styles.image}
+      />
     </div>
   );
+};
+
+ImageCard.propTypes = {
+  image: PropTypes.shape({
+    urls: PropTypes.shape({
+      small: PropTypes.string.isRequired,
+    }).isRequired,
+    alt_description: PropTypes.string,
+  }).isRequired,
 };
 
 export default ImageCard;

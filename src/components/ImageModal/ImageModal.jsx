@@ -1,22 +1,36 @@
-import Modal from 'react-modal';
-import styles from './ImageModal.module.css';
-
-Modal.setAppElement('#root'); // Set this if you're using a div with id="root"
+import PropTypes from "prop-types";
+import "./ImageModal.module.css";
 
 const ImageModal = ({ isOpen, onRequestClose, image }) => {
-  if (!image) return null;
-
-  const { urls, alt_description, user, likes } = image;
+  if (!isOpen) return null;
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={onRequestClose} className={styles.modalContent}>
-      <div>
-        <img className={styles.image} src={urls.regular} alt={alt_description} />
-        <p className={styles.author}>Author: {user.name}</p>
-        <p className={styles.likes}>Likes: {likes}</p>
+    <div className="modalOverlay" onClick={onRequestClose}>
+      <div className="modalContent" onClick={(e) => e.stopPropagation()}>
+        <button onClick={onRequestClose}>Close</button>
+        <img src={image.urls.regular} alt={image.alt_description} />
+        <div>
+          <h2>{image.user.name}</h2>
+          <p>Likes: {image.likes}</p>
+        </div>
       </div>
-    </Modal>
+    </div>
   );
+};
+
+ImageModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onRequestClose: PropTypes.func.isRequired,
+  image: PropTypes.shape({
+    urls: PropTypes.shape({
+      regular: PropTypes.string.isRequired,
+    }).isRequired,
+    alt_description: PropTypes.string,
+    user: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+    likes: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default ImageModal;
