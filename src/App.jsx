@@ -32,7 +32,7 @@ const App = () => {
         const data = await response.json();
         setImages((prevImages) => [...prevImages, ...data.results]);
       } catch (error) {
-        setError(error.message); 
+        setError(error.message);
       } finally {
         setIsLoading(false);
       }

@@ -1,6 +1,17 @@
-.searchBar {
-  padding: 20px;
-  text-align: center;
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  background-color: #bce1ff;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
 }
 
 input {
@@ -8,19 +19,17 @@ input {
   font-size: 18px;
   margin-right: 10px;
   border-radius: 4px;
+  max-width: 100%;
+  flex-grow: 1;
   border: 1px solid #ccc;
 }
 
 button {
   padding: 10px 20px;
   font-size: 18px;
-  background-color: white;
-  border: 1px solid black;
   border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #1976d2;
+  border: 1px solid white;
+  background-color: #2196f3;
   color: white;
+  cursor: pointer;
 }

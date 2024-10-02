@@ -8,6 +8,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.modalOverlay.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .modalContent {
@@ -15,4 +24,19 @@
   padding: 20px;
   border-radius: 8px;
   position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+  transform: translateY(-30px);
+  transition: transform 0.3s ease;
+}
+
+.modalContent.active {
+  transform: translateY(0);
+}
+
+.modalContent img {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
 }
