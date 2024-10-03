@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-hot-toast';
 import styles from './SearchBar.module.css';
 
 const SearchBar = ({ onSubmit }) => {
@@ -8,7 +9,8 @@ const SearchBar = ({ onSubmit }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (inputValue.trim() === '') {
-      return alert('Please enter a search query.');
+      toast.error('Please enter a search query.');
+      return;
     }
     onSubmit(inputValue);
     setInputValue('');
